@@ -19,8 +19,10 @@ st.title("Water Colour")
 img_file=st.file_uploader("Upload your image",type=['jpg','png','jpeg'])
 
 if img_file:
-    org_img=Image.open(img_file)
-    org_img=np.array(org_img)
+    #org_img=Image.open(img_file)
+    #org_img=np.array(org_img)
+    org = cv2.imdecode(np.fromstring(img_file.read(), np.uint8), 1)
+    org_img=cv2.cvtColor(org, cv2.COLOR_BGR2RGB) 
     wt=watercolour(org_img)
     sk=sketch(org_img)
     st.image([org_img,sk])
