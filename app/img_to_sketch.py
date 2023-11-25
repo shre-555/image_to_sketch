@@ -4,6 +4,7 @@ import streamlit as st
 from PIL import Image
 import artistic as art
 from random import randint
+import feedback_analyzer
 
 st.title("Artistic Effects")
 img_file=st.file_uploader("Upload your image",type=['jpg','png','jpeg'])
@@ -46,5 +47,9 @@ if img_file and option:
     st.image(org_img)
     sketch_type + ' Sketch'
     st.image(sk)
+
+    feedback = st.text_input('Tell us how you found our app')
+    if feedback:
+        st.write(feedback_analyzer.get_reply(feedback))
 
 
