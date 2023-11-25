@@ -16,3 +16,7 @@ def pencil(inp_img):
     img_pencil_sketch, pencil_color_sketch = cv2.pencilSketch( 
         inp_img, sigma_s=50, sigma_r=0.07, shade_factor=0.0825) 
     return img_pencil_sketch,pencil_color_sketch
+
+##def cartoon(img):
+    # placeholder
+    
